@@ -1,6 +1,7 @@
 package com.company;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -13,23 +14,35 @@ import javafx.scene.Scene;
 
 public class GameScene extends Scene {
 
+
     public GameScene(Parent parent) {
         super(parent);
+
     }
 
-     public static Camera Cam = new Camera(800,420);
+     public static Camera Cam = new Camera(800,420,200,200);
      public static StaticThing left = new StaticThing(800,600,"C:\\Users\\oscar\\IdeaProjects\\Runner_Project\\desert.png");
      public static StaticThing right = new StaticThing(800,600,"C:\\Users\\oscar\\IdeaProjects\\Runner_Project\\desert.png");
-     public static Hero Hero= new Hero(800,420 ,0,"C:\\Users\\oscar\\IdeaProjects\\Runner_Project\\heros.png");
+     public static Hero Hero= new Hero(800,420 ,0,"C:\\Users\\oscar\\IdeaProjects\\Runner_Project\\heros.png", 84, 100 );
 
-     AnimationTimer timer = new AnimationTimer()
-        {public void handle(long time){
-         Hero.update(time);
-         Cam.update(time);
-         GameScene.update(time);
+
+        /** Mise en place du timer pour les animations : une animation toutes les 8ms */
+
+     public static long lastUpdate=0;
+
+     public static AnimationTimer timer = new AnimationTimer()
+        {public void handle(long now){
+         if (now - lastUpdate >= 80000000) {
+             Hero.update();
+             lastUpdate=now;
+             //      Cam.update(time);
+             //      GameScene.update(time);
+         }
          }
      };
 
 
-
+    public AnimationTimer getTimer() {
+        return timer;
+    }
 }

@@ -33,15 +33,11 @@ public class Main extends Application {
         root.getChildren().add(GameScene.left.getImg());
         root.getChildren().add(GameScene.right.getImg());
 
-            /** Mise en place du héros */
-        Image spriteSheet = new Image("C:\\Users\\oscar\\IdeaProjects\\Runner_Project\\heros.png");
-        ImageView sprite = new ImageView(spriteSheet);
+            /** Mise en place du Héros */
+        root.getChildren().add(GameScene.Hero.getImgAT());
+        GameScene.timer.start();
 
-            /** Définition un rectangle qui fait un zoom sur une zone de l'image (pour le héros)*/
-        sprite.setViewport(new Rectangle2D(20,0,75,100));
-        sprite.setX(GameScene.Cam.getX());                                                                              // permet de choisir la position du rectangle
-        sprite.setY(GameScene.Cam.getY());
-        root.getChildren().add(sprite);
+
 
 
 

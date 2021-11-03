@@ -6,10 +6,14 @@ package com.company;
 public class Camera {
     private Integer X;
     private Integer Y;
+    private Integer windowSizeX;
+    private Integer windowSizeY;
 
-    public Camera(Integer X,Integer Y){
+    public Camera(Integer X,Integer Y,Integer windowSizeX,Integer windowSizeY){
         this.X=X;
         this.Y=Y;
+        this.windowSizeX=windowSizeX;
+        this.windowSizeY=windowSizeY;
     }
 
     public Integer getX() {
