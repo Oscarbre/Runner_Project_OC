@@ -35,18 +35,25 @@ public abstract class AnimatedThing {
 
         }
 
+        /** Setter et Getter */
 
     public ImageView getImgAT() {
         return img;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
+    public void setXpos(double x) {
+        this.getImgAT().setX(x);}
 
     public void setY(double y) {
-        this.y = y;
-    }
+        this.getImgAT().setY(y);}
+
+    public double getXpos() {
+        return img.getX();}
+
+    public double getYpos() {
+        return img.getY();}
+
+        /** fonction d'actualisation du héros */
 
     public void update() {
         if (attitude==0) {

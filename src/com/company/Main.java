@@ -18,39 +18,18 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
              /** Création de la scène */
-        primaryStage.setTitle("Runner Project - Oscar Chêne");
+        primaryStage.setTitle("Runner Project - Oscar Chêne - 2G2TD1TP1");
         Group root = new Group();
         Pane pane = new Pane(root);
-        Scene theScene = new Scene(pane, 1600, 600,true);
+        //Scene theScene = new Scene(pane, 1600, 600,true);
+        GameScene theScene = new GameScene(pane, 1600, 600,true);
         primaryStage.setScene(theScene);
         primaryStage.show();
-
-             /** Mise en place du background */
-        GameScene.left.getImg().setX(0);
-        GameScene.left.getImg().setY(0);
-        GameScene.right.getImg().setX(800);
-        GameScene.right.getImg().setY(0);
-        root.getChildren().add(GameScene.left.getImg());
-        root.getChildren().add(GameScene.right.getImg());
-
-            /** Mise en place du Héros */
-        root.getChildren().add(GameScene.Hero.getImgAT());
-        GameScene.timer.start();
-
-
-
-
-
-
-
 
 
     }
 
          public static void main(String[] args) {
              launch(args);
-
-
-
          }
 }
