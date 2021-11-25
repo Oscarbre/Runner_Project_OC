@@ -1,5 +1,6 @@
 package com.company;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -23,22 +24,12 @@ public class StaticThing {
         this.height=h;
         img.setFitHeight(h);
         img.setFitWidth(l);
-        img.setPreserveRatio(false);
-        Nboflives=0;
+        img.setPreserveRatio(true);
     }
 
 
     public ImageView getImg() {
         return img;
-    }
-
-    public Integer Lifelose(){
-        this.Nboflives=this.Nboflives-1;
-        return Nboflives;
-    }
-    public Integer Lifegain(){
-        this.Nboflives=this.Nboflives+1;
-        return Nboflives;
     }
 
 

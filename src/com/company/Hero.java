@@ -9,11 +9,10 @@ public class Hero extends AnimatedThing {
 
 
     }
- //   public setAttitude(Integer index){
 
-
-    //   }
-
+    public void jump(){
+        this.setAttitude(1);
+    }
 
 
 

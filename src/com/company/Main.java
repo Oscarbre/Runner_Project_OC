@@ -21,8 +21,7 @@ public class Main extends Application {
         primaryStage.setTitle("Runner Project - Oscar Chêne - 2G2TD1TP1");
         Group root = new Group();
         Pane pane = new Pane(root);
-        //Scene theScene = new Scene(pane, 1600, 600,true);
-        GameScene theScene = new GameScene(pane, 1600, 600,true);
+        GameScene theScene = new GameScene(pane, 1600, 400,true);
         primaryStage.setScene(theScene);
         primaryStage.show();
 
