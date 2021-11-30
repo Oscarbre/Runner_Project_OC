@@ -4,19 +4,19 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import static com.company.GameScene.rand;
+
 public abstract class AnimatedThing {
     private double x;
     private double y;
-    private ImageView img;
+    protected ImageView img;
     private Integer attitude;
     private String path;
 
     private Integer index;
     private Integer indexMax=16;
-    private Integer timeframe;
     private Integer windowSizeX;
     private Integer windowSizeY;
-    private Integer offset;
     private Rectangle2D frame;
 
     private Integer divfreq=0;
@@ -40,17 +40,17 @@ public abstract class AnimatedThing {
 
         /** Setter et Getter */
 
-    public ImageView getImgAT() {
+    public ImageView getImg() {
         return img;
     }
 
     public void setXpos(double x) {
-        this.getImgAT().setX(x);
+        this.getImg().setX(x);
         this.x=x;
     }
 
     public void setYpos(double y) {
-        this.getImgAT().setY(y);
+        this.getImg().setY(y);
         this.y=y;
     }
 
@@ -81,7 +81,7 @@ public abstract class AnimatedThing {
 
         // "Jumping" (up)
         if (attitude==1 ) {
-            this.img.setViewport(new Rectangle2D(0, 120, this.windowSizeX, this.windowSizeY+30));
+            this.img.setViewport(new Rectangle2D(0, 120, this.windowSizeX, this.windowSizeY+40));
             if (i==0) {
                 this.setAttitude(-1);
             }
@@ -91,7 +91,7 @@ public abstract class AnimatedThing {
 
         // "Jumping" (down)
         if (attitude==-1 ) {
-            this.img.setViewport(new Rectangle2D( 84 , 120,this.windowSizeX, this.windowSizeY+30));
+            this.img.setViewport(new Rectangle2D( 84 , 120,this.windowSizeX, this.windowSizeY+40));
             if(i==22){
                 i+=1;
                 this.img.setViewport(new Rectangle2D( 0 , 0,this.windowSizeX, this.windowSizeY));
@@ -101,8 +101,18 @@ public abstract class AnimatedThing {
             i+=1;
             this.setYpos(this.getYpos()+i);
         }
+        if (attitude==3){
+            this.setXpos(this.getXpos()-10);
+            if (this.getXpos()<-200){
+                this.setXpos(2000+rand.nextInt(10000));
+            }
+        }
 
         
+    }
+
+    public Rectangle2D GetHitbox(){
+        return new Rectangle2D(this.x,this.y,this.windowSizeX,this.windowSizeY);
     }
 }
 

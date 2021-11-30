@@ -13,7 +13,7 @@ public class StaticThing {
     private double length;
     private double height;
     private String path;
-    private ImageView img;
+    protected ImageView img;
     private Integer Nboflives;
 
     public StaticThing(double l,double h,String path){
